@@ -5,6 +5,31 @@ import './App.css'
 
 function App() {
 
+  const weatherData =         [
+    {
+      name: "Snow",
+      facts: [
+        "All snowflakes are different",
+        "It's cold",
+        "It reflects light (and can give you a sunburn #rude)"
+      ]
+    },
+    {
+      name: "Rain",
+      facts: [
+        "More fun than snow",
+        "Better when warm outside",
+        "Washed the itsy bitsy spider down the water spout",
+        "If you don't get rain, you will have a drought"
+      ]
+    },
+    {
+      name: "Sunshine",
+      facts: [
+        "can DEFINITELY give you a sunburn"
+      ]
+    }
+    ];
   return (
     <>
       <h1>Weather Patterns</h1>
@@ -12,24 +37,12 @@ function App() {
       <div>
         <p>We love weather. Here are some of the weather patterns that have been interesting lately.</p>
 
-        <div>
-          <h3>Snow</h3>
+        {weatherData.map(weather => <div key={weather.name}> 
+          <h3>{weather.name}</h3>
           <ul>
-            <li>All snowflakes are different</li>
-            <li>It's cold</li>
-            <li>It reflects light (and can give you a sunburn #rude)</li>
+            {weather.facts.map(f => <li>{f}</li>)}
           </ul>
-        </div>
-
-        <div>
-          <h3>Rain</h3>
-          <ul>
-            <li>Less fun than snow</li>
-            <li>Better when warm outside</li>
-            <li>Washed the itsy bitsy spider down the water spout</li>
-            <li>If you don't get rain, you will have a drought</li>
-          </ul>
-        </div>
+        </div>)}
       </div>
     </>
   )
